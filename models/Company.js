@@ -12,6 +12,6 @@ let schema = new mongoose.Schema({
 })
 let collection = 'companies'
 
-let Company= mongoose.model(schema,collection)
+let Company= mongoose.model(collection,schema)
 
 export default Company
