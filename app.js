@@ -8,7 +8,9 @@ import logger from 'morgan';
 import indexRouter from './routes/index.js';
 import { __dirname } from './utils.js';
 const app = express();
-const cors = require('cors')
+import cors from 'cors'
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
