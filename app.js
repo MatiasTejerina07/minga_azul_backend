@@ -10,6 +10,8 @@ import { __dirname } from './utils.js';
 const app = express();
 import cors from 'cors'
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
