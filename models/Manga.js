@@ -4,12 +4,12 @@ let schema = new mongoose.Schema({
   author_id: {
     type: mongoose.Types.ObjectId,
     ref: "authors",
-    requiered: true,
+    required: true,
   },
   company_id: { type: mongoose.Types.ObjectId, ref: "companies" },
-  title: { type: String, requiered: true },
-  cover_photo: { type: String, requiered: true },
-  description: { type: String, requiered: true },
+  title: { type: String, required: true },
+  cover_photo: { type: String, required: true },
+  description: { type: String, required: true },
   category_id: { type: mongoose.Types.ObjectId, ref: "categories" }},
   {timestamp: true}
   
