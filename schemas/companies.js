@@ -26,3 +26,4 @@ export const companiesCreate = Joi.object({
     }),
     description: Joi.string().required(),
 })
+
