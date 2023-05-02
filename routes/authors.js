@@ -10,5 +10,5 @@ import authorExistsSingUp from "../middlewares/accountSingUp.js";
 let router = Router()
 
 router.get('/', read)
-router.post('/singnup', validator(authorCreateSingnIn), authorExistsSingUp, create)
+router.post('/signup', validator(authorCreateSingnIn), authorExistsSingUp, create)
 export default router
