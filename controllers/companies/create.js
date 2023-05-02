@@ -1,21 +1,24 @@
-import Company from '../../models/Company.js' 
-import { createCompanySchema } from '../../schemas/companies.js';
+import Companies from '../../models/Company.js'
 
-//ruta para crear un capítulo
-let create = async(req,res,next) => {
-try {
-    const { value, error } = createCompanySchema.validate(req.body);
-        if (error) {
-        return res.status(400).json({ error: error.details[0].message });
+let create = async(req,res,next)=>{
+    try {
+        let object = req.body;
+        object.active = true;
+        object.user_id = '6442f6edff4aba8835dad8a5';
+        
+
+        let one = await Companies(req.body)
+        await one.save()
+        return res.status(201).json({
+            companies: one,
+            succes: true,
+            timestamps: one.createAt
+        })
+    } catch (error) {
+        console.log(error)
+        next(error)
+        
     }
-    const company = new Company(value);
-    await company.save();
-    res.status(201).json(company);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Server error');
-        next(err);
-    }
-};
+}
 
 export default create
