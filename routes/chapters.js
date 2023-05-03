@@ -9,6 +9,6 @@ import { createChapterSchema } from '../schemas/chapters.js';
 let router = Router();
 
 router.get("/", read),
-router.post('/', validator(createChapterSchema), chapterExistsSingUp , create)
+router.post('/create', validator(createChapterSchema), chapterExistsSingUp , create)
 
 export default router

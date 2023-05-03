@@ -5,9 +5,9 @@ export const companiesCreate = Joi.object({
     .min(4)
     .max(10)
     .messages({
-        'any.required': ' Is name required',
-        'string.empty': ' Is name required',
-        'string.min': ' The name is too short',
+        'any.required': 'Is name required',
+        'string.empty': 'Is name required',
+        'string.min': 'The name is too short',
         'string.max': 'The namme can only contain 10 letters'
     }),
     logo: Joi.string().required()

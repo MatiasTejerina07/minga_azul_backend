@@ -6,10 +6,10 @@ export const authorCreateSingnIn = joi.object({
     .min(4)
     .max(10)
     .messages({
-        'any.required': 'Is name required',
-        'string.empty': 'Is name required',
-        'string.min': 'The name is too short',
-        'string.max': 'The name can only contain 10 letters'
+        'any.required':'Is name required',
+        'string.empty':'Is name required',
+        'string.min':'The name is too short',
+        'string.max':'The name can only contain 10 letters'
     }),
     lastname: joi.string()
       .min(4)
@@ -33,8 +33,8 @@ export const authorCreateSingnIn = joi.object({
     photo: joi.string().required()
     .uri()
     .messages({
-        'any.required': 'IMG_REQUIRED',
-        'string.empty': 'IMG_REQUIRED',
-        'string.uri': 'INVALID_URL',
+        'any.required': 'The url does not exist or is invalid',
+        'string.empty': 'The url does not exist or is invalid',
+        'string.uri': '¡INVALID URL!',
     }),
 })
