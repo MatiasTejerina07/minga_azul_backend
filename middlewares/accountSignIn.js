@@ -13,7 +13,15 @@ async function accountExistsSignIn(req, res, next){
         }
         return next()
     }
-    return res.status(400).send('user does not exist!');
+    return res.status(400).json({
+        success: false,
+        message: [
+            {
+                path: "credentials",
+                message: "wrong credentials"
+            }
+        ]
+    });
 }
 
 export default accountExistsSignIn
