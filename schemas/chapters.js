@@ -4,7 +4,7 @@ import Joi from 'joi';
 export const createChapterSchema = Joi.object({
     manga_id: Joi.string().required(),
     title: Joi.string().required(),
-    cover_photo: Joi.string().uri().required(),
+    cover_photo: Joi.string().uri(),
     pages: Joi.array().items(Joi.string()).required(),
     order: Joi.string().required(),
 });

@@ -4,6 +4,8 @@ import { createChapterSchema } from '../../schemas/chapters.js';
 //ruta para crear un capítulo
 let create = async(req,res,next) => {
 try {
+    let object = req.body
+    object.cover_photo = "https://pm1.narvii.com/6106/fd2d7db8b7983348bcbeba05fe52a5d308e8fb2b_hq.jpg"
     const { value, error } = createChapterSchema.validate(req.body);
         if (error) {
         return res.status(400).json({ error: error.details[0].message });
