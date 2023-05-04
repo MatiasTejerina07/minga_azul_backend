@@ -5,6 +5,7 @@ let create = async(req, resp, next)=>{
     try {
         let authorData = req.body;
         authorData.active = true;
+        console.log(authorData.id)
         authorData.user_id = '6442f71ea4ac022e334b18b1';
         
         
