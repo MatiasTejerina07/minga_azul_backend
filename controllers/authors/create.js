@@ -5,8 +5,8 @@ let create = async(req, resp, next)=>{
     try {
         let authorData = req.body;
         authorData.active = true;
+        authorData.user_id = req.user.id;
         console.log(authorData.id)
-        authorData.user_id = '6442f71ea4ac022e334b18b1';
         
         
         let one = await Author(req.body)

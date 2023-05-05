@@ -1,7 +1,7 @@
 import joi from "joi";
 
 
-export const authorCreateSingnIn = joi.object({
+export const authorCreate = joi.object({
     name: joi.string().required()
     .min(4)
     .max(10)
@@ -14,7 +14,7 @@ export const authorCreateSingnIn = joi.object({
     lastname: joi.string()
       .min(4)
       .max(10)
-      .optional()
+      .required()
       .messages({
          'string.min': 'The lastname is too short',
          'string.max': 'The lastname can only contain 10 letters'
