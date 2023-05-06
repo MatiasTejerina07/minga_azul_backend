@@ -1,9 +1,11 @@
 import Chapter from "../models/Chapter.js";
 
-async function  chapterExistsSingUp(req,res,next){
+async function  chapterExists(req,res,next){
 
     const chapter = await Chapter.findOne({
-        title : req.body.title})
+        manga_id : req.body.manga_id,
+        title: req.body.title
+    })
     if (chapter){
         return res.status(400).json({
             succes: false,
@@ -12,4 +14,4 @@ async function  chapterExistsSingUp(req,res,next){
     }
     return next()
 }
-export default chapterExistsSingUp
+export default chapterExists
