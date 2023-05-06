@@ -9,11 +9,12 @@ import existOrder from '../middlewares/existsorder.js';
 import isPropertyOf from '../middlewares/isPropertyOf.js';
 import nextOrder from '../middlewares/nextOrder.js';
 import mangaExists from '../middlewares/mangaExists.js';
+import addCoverPhoto from '../middlewares/addCoverPhoto.js';
 import { createChapterSchema } from '../schemas/chapters.js';
 
 let router = Router();
 
 router.get("/", read),
-router.post('/', validator2(createChapterSchema),passport.authenticate("jwt", {session: false}),mangaExists,isPropertyOf, chapterExists ,nextOrder ,existOrder,  create)
+router.post('/', validator2(createChapterSchema),passport.authenticate("jwt", {session: false}),mangaExists ,isPropertyOf, chapterExists,addCoverPhoto ,nextOrder ,existOrder,  create)
 
 export default router
