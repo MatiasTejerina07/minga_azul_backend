@@ -4,14 +4,19 @@ import { createChapterSchema } from '../../schemas/chapters.js';
 //ruta para crear un capítulo
 let create = async(req,res,next) => {
 try {
-    const { value, error } = createChapterSchema.validate(req.body);
-        if (error) {
-        return res.status(400).json({ error: error.details[0].message });
-    }
-    const chapter = new Chapter(value);
-    await chapter.save();
-    res.status(201).json(chapter);
-    } catch (err) {
+        let newchapter = {
+            manga_id: req.body.manga_id,
+            title: req.body.title,
+            cover_photo: req.body.cover_photo,
+            pages: req.body.pages,
+            order: req.body.order,
+            
+        }
+        const chapter = new Chapter(newchapter);
+        await chapter.save();
+        res.status(201).json(chapter);
+    
+    }catch (err) {
         console.error(err);
         res.status(500).send('Server error');
         next(err);
