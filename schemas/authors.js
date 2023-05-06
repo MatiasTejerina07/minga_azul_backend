@@ -4,7 +4,7 @@ import joi from "joi";
 export const authorCreate = joi.object({
     name: joi.string().required()
     .min(4)
-    .max(10)
+    .max(30)
     .messages({
         'any.required': 'Is name required',
         'string.empty': 'Is name required',
@@ -13,7 +13,7 @@ export const authorCreate = joi.object({
     }),
     lastname: joi.string()
       .min(4)
-      .max(10)
+      .max(30)
       .required()
       .messages({
          'string.min': 'The lastname is too short',

@@ -7,7 +7,6 @@ async function existOrder (req,res,next){
         order: req.body.order,
 
     })
-    console.log(chapters)
     if (chapters){
         return res.status(400).json({
             success: false,

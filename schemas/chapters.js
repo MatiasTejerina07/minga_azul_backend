@@ -5,6 +5,6 @@ export const createChapterSchema = Joi.object({
     manga_id: Joi.string().required(),
     title: Joi.string().required(),
     cover_photo: Joi.string().uri(),
-    pages: Joi.array().items(Joi.string()).required(),
-    order: Joi.string().required(),
+    pages: Joi.array().items(Joi.string().uri()).required(),
+    order: Joi.number(),
 });
