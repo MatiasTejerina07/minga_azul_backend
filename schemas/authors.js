@@ -9,7 +9,7 @@ export const authorCreate = joi.object({
         'any.required': 'Is name required',
         'string.empty': 'Is name required',
         'string.min': 'The name is too short',
-        'string.max': 'The name can only contain 10 letters'
+        'string.max': 'The name can only contain 30 letters'
     }),
     lastname: joi.string()
       .min(4)
@@ -17,7 +17,7 @@ export const authorCreate = joi.object({
       .required()
       .messages({
          'string.min': 'The lastname is too short',
-         'string.max': 'The lastname can only contain 10 letters'
+         'string.max': 'The lastname can only contain 30 letters'
       }),
 
    date: joi.date()

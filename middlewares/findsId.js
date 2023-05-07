@@ -21,7 +21,10 @@ let find_id = async(req,res,next)=>{
     }
     return res.status(400).json({
         success: false,
-        messages: "User doesn't exist"
+        message: [{
+            path: "unauthorized",
+            message: "You don't have authorization for this action"
+        }]
     })
 }
 export default find_id

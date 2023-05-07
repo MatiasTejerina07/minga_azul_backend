@@ -8,7 +8,10 @@ async function authorExist(req,res,next){
     if(author){
         return res.status(400).json({
             succes:false,
-            messages:"The you are author!!"
+            message: [{
+                path: "exists",
+                message: "Author already exists"
+            }]
         })
     }
     return next()

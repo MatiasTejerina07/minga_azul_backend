@@ -5,7 +5,10 @@ async function addCoverPhoto(req, res, next){
     }
     return res.status(400).json({
         succes: false,
-        messages: "cualquier cosa"
+        message: [{
+            path: "cover_photo",
+            message: "An error occurred while uploading your photo."
+        }]
     })
 }
 export default addCoverPhoto

@@ -1,15 +1,15 @@
 import {Router} from "express";
 import read from "../controllers/companies/read.js";
 import create from "../controllers/companies/create.js";
-import validator2 from "../middlewares/validator2.js";
+import validator from "../middlewares/validator.js";
 import { companiesCreate } from '../schemas/companies.js';
-import companiesExists from '../middlewares/companyExists.js'
+import companyNameExists from '../middlewares/companyNameExists.js'
 import passport from "../middlewares/passport.js";
-
+import companyExists from '../middlewares/companyExists.js'
 
 let router = Router()
 
 router.get('/', read)
-router.post('/',validator2(companiesCreate), passport.authenticate('jwt', {session: false}) ,companiesExists, create)
+router.post('/',validator(companiesCreate), passport.authenticate('jwt', {session: false}), companyExists ,companyNameExists, create)
 
 export default router

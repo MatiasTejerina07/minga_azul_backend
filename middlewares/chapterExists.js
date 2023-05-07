@@ -9,7 +9,10 @@ async function  chapterExists(req,res,next){
     if (chapter){
         return res.status(400).json({
             succes: false,
-            message:"There is already a chapter!"
+            message: [{
+                path: "exists",
+                message: "The chapter already exists"
+            }]
         })
     }
     return next()
