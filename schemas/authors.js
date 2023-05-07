@@ -12,19 +12,16 @@ export const authorCreate = joi.object({
         'string.max': 'The name can only contain 30 letters'
     }),
     lastname: joi.string()
-      .min(4)
-      .max(30)
-      .required()
-      .messages({
-         'string.min': 'The lastname is too short',
-         'string.max': 'The lastname can only contain 30 letters'
-      }),
+    .min(4)
+    .max(30)
+    .required()
+    .messages({
+        'string.min': 'The lastname is too short',
+        'string.max': 'The lastname can only contain 30 letters'
+}),
 
-   date: joi.date()
-      .optional()
-      .messages({
-         'date.base': 'Invalid date format',
-      }),
+    date: joi.date()
+    .optional(),
 
     city: joi.string().required(),
 
