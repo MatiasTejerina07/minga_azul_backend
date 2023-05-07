@@ -1,6 +1,6 @@
 import Company from '../models/Company.js'
 
-async function authorExist(req,res,next){
+async function companyExist(req,res,next){
     let company = await Company.findOne({
         user_id: req.user.id
     
@@ -16,4 +16,4 @@ async function authorExist(req,res,next){
     }
     return next()
 }
-export default authorExist
+export default companyExist
