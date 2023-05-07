@@ -10,7 +10,10 @@ async function isPropertyOf(req,res,next){
     }
     return res.status(400).json({
         success: false,
-        messages: "No es de tu autoria"
+        message: [{
+            path: "authorship",
+            message: "The manga is not of your authorship"
+        }]
     })
 }
 export default isPropertyOf

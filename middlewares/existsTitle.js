@@ -9,7 +9,7 @@ async function exists_title(req, res, next) {
         return res.status(400).json({
             succes: false,
             message: [{
-                path: "mangaExist",
+                path: "exists",
                 message: "The manga already exist"
             }]
         })

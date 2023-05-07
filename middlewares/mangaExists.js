@@ -6,8 +6,8 @@ async function mangaExists(req, res, next) {
         return res.status(400).json({
             succes: false,
             message: [{
-                path: "mangaNoExist",
-                message: "El manga no existe!"
+                path: "exists",
+                message: "The manga id does not match any of the existing ones."
             }]
         })
     }

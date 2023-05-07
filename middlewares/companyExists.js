@@ -1,15 +1,19 @@
-import Company from "../models/Company.js";
+import Company from '../models/Company.js'
 
-async function  companiesExists(req,res,next){
+async function companyExist(req,res,next){
+    let company = await Company.findOne({
+        user_id: req.user.id
     
-    const companies = await Company.findOne({
-        name : req.body.name})
-    if (companies){
+    })
+    if(company){
         return res.status(400).json({
-            success: false,
-            message:" The company already exists!"
+            succes:false,
+            message: [{
+                path: "exists",
+                message: "You are already part of a company"
+            }]
         })
     }
     return next()
 }
-export default companiesExists
+export default companyExist

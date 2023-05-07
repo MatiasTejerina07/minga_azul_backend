@@ -10,7 +10,10 @@ async function existOrder (req,res,next){
     if (chapters){
         return res.status(400).json({
             success: false,
-            messages: "The order already exists"
+            message: [{
+                path: "order",
+                message: "The order already exists"
+            }]
         })
     }
     return next()
