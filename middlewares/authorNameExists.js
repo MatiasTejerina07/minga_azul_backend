@@ -3,7 +3,7 @@ import Author from "../models/Author.js";
 async function authorNameExist(req,res,next){
     let author = await Author.findOne({
         name: req.body.name,
-        lastname: req.body.name
+        lastname: req.body.lastname
     })
     if(author){
         return res.status(400).json({
