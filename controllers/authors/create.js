@@ -4,13 +4,6 @@ import User from "../../models/User.js";
 
 let create = async(req, resp, next)=>{
     try {
-        let authorData = req.body;
-        authorData.active = true;
-        authorData.user_id = req.user.id;
-        
-        console.log(authorData.id)
-        
-        
         let one = await Author(req.body)
         await one.save()
         await User.findOneAndUpdate({
