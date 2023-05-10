@@ -16,13 +16,9 @@ async function getChapters(req, res, next) {
     }
     console.log(req.query.manga_id)
     try {
-        let count = await Chapter.countDocuments({manga_id: req.query.manga_id}) / limit
-        count = Math.ceil(count)
         let chapters = await Chapter.find({ manga_id: req.query.manga_id }, 'title order cover_photo pages', { skip: skip, limit: limit })?.sort({ order: order })
         let newChapters = []
-        console.log("estoy aca")
         for(let chapter of chapters){
-            console.log("entre")
             let newChapter = {
                 _id: chapter._id,
                 title: chapter.title,
@@ -34,8 +30,7 @@ async function getChapters(req, res, next) {
         }
         return res.status(201).json({
             success: true,
-            chapters: newChapters,
-            pages: count
+            chapters: newChapters
         })
     } catch (error) {
         res.status(500).json({

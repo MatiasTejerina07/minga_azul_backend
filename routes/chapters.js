@@ -13,11 +13,13 @@ import find_id from '../middlewares/findsId.js'
 import addCoverPhoto from '../middlewares/addCoverPhoto.js';
 import { createChapterSchema } from '../schemas/chapters.js';
 import getChapters from '../controllers/chapters/get_chapters.js'
+import getPages from '../controllers/chapters/get_pages.js';
 
 let router = Router();
 
 /* router.get("/", read), */
-router.get("/", getChapters)
+router.get("/", getChapters);
+router.get("/pages", getPages)
 router.post('/', validator(createChapterSchema),passport.authenticate("jwt", {session: false}),mangaExists, find_id ,isPropertyOf, chapterExists,addCoverPhoto ,nextOrder ,existOrder,  create)
 
 export default router
