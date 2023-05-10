@@ -12,10 +12,12 @@ import mangaExists from '../middlewares/mangaExists.js';
 import find_id from '../middlewares/findsId.js'
 import addCoverPhoto from '../middlewares/addCoverPhoto.js';
 import { createChapterSchema } from '../schemas/chapters.js';
+import get_one from '../controllers/chapters/get_one.js';
 
 let router = Router();
 
-router.get("/", read),
+router.get('/', read),
+router.get('/:id',get_one),
 router.post('/', validator(createChapterSchema),passport.authenticate("jwt", {session: false}),mangaExists, find_id ,isPropertyOf, chapterExists,addCoverPhoto ,nextOrder ,existOrder,  create)
 
 export default router
