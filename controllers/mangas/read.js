@@ -1,5 +1,5 @@
-import Manga from '../../models/Manga.js'
 
+import Manga from '../../models/Manga.js'
 let read = async(req,res,next)=>{
     let queries = {}
     let sort = {}
@@ -16,7 +16,7 @@ let read = async(req,res,next)=>{
 
     }
     if( req.query.category_id ){
-        queries.category_id =  req.query.category_id.trim()
+        queries.category_id =  req.query.category_id
         pagination={
             limit:10,
             page:1
