@@ -20,7 +20,7 @@ let router = Router();
 
 router.get("/", getChapters);
 router.get('/:id',get_one)
-router.get("/pages", getPages)
+router.get("/pages/:id", getPages)
 router.post('/', validator(createChapterSchema),passport.authenticate("jwt", {session: false}),mangaExists, find_id ,isPropertyOf, chapterExists,addCoverPhoto ,nextOrder ,existOrder,  create)
 
 export default router

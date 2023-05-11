@@ -6,7 +6,7 @@ async function getPages(req, res, next) {
         limit = req.query.limit
     }
     try {
-        let count = await Chapter.countDocuments({manga_id: req.query.manga_id}) / limit
+        let count = await Chapter.countDocuments({manga_id: req.params.id}) / limit
         count = Math.ceil(count)
         return res.status(201).json({
             success: true,
