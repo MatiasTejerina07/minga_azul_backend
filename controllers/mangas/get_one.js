@@ -3,7 +3,7 @@ import Manga from "../../models/Manga.js";
 async function getOne(req, res, next){
     console.log(req.params.id);
     try {
-        let manga = await Manga.findById(req.params.id).select('-_id -author_id -__v').populate("company_id", "name -_id")
+        let manga = await Manga.findById(req.params.id).select('-_id -author_id -__v').populate("company_id", "name -_id").populate("category_id", "color hover name -_id")
         if(manga){
            return res.status("201").json(manga);
         }
