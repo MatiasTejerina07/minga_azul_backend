@@ -3,15 +3,20 @@ import get_mangas from "../controllers/mangas/get_mangas.js";
 import passport from "../middlewares/passport.js";
 import validator from "../middlewares/validator.js";
 import create from '../controllers/mangas/create.js'
-import {mangasCreate} from '../schemas/mangas.js';
+import {mangasCreate, mangasUpdate} from '../schemas/mangas.js';
 import exists_title from "../middlewares/existsTitle.js";
 import find_id from '../middlewares/findsId.js';
 import get_one from '../controllers/mangas/get_one.js';
-
+import get_me from '../controllers/mangas/get_me.js'
+import update from "../controllers/mangas/update.js";
+import is_active from "../middlewares/isactive.js"
+import is_property_of from "../middlewares/isPropertyOf.js"
 let router = Router()
 
 router.get('/', get_mangas)
+router.get('/me', passport.authenticate('jwt', {session: false}),find_id, get_me)
 router.get('/:id', get_one)
+router.put('/:id',validator(mangasUpdate), passport.authenticate('jwt', {session: false}), find_id, is_active, is_property_of,  update)
 router.post('/',validator(mangasCreate),  passport.authenticate('jwt', {session: false}),exists_title,find_id ,create )
 
 export default router

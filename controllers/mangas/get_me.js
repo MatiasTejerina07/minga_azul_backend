@@ -1,30 +1,33 @@
 import Manga from "../../models/Manga.js";
-
-async function update(req, res, next){
+import Author from "../../models/Author.js"
+async function getMe(req, res, next){
     try {
-        let manga = await Manga.findByIdAndUpdate(req.params.id, req.body, {new: true})
-        if(manga){
+        let mangas = await Manga.find({author_id: req.body.author_id});
+        if(mangas){
             return res.status(201).json({
                 success: true,
-                manga
+                mangas
             })
         }else{
             return res.status(404).json({
                 success: false,
                 message: [{
                     path: "exists",
-                    message: "The manga doesn't exists"
+                    message: "There are no manga by this author"
                 }]
             })
         }
     } catch (error) {
         return res.status(500).json({
             success: false,
-            message: [{
-                path: "internal",
+            message:[{
+                path: "internalError",
                 message: "Internal server error"
             }]
         })
     }
+    
+    
 }
-export default update;
+
+export default getMe;
