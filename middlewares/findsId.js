@@ -3,7 +3,6 @@ import Company from "../models/Company.js"
 import createHttpError from "http-errors";
 
 let find_id = async(req,res,next)=>{
-    
     let author = await Author.findOne({
         user_id: req.user.id
     })
