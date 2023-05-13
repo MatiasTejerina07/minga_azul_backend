@@ -1,10 +1,11 @@
-import createHttpError from "http-errors";
 import Author from  '../../models/Author.js'
 import User from "../../models/User.js";
 
 let create = async(req, resp, next)=>{
     try {
         let one = await Author(req.body)
+        one.user_id = req.user.id
+        one.active = true
         await one.save()
         await User.findOneAndUpdate({
             _id: req.user.id
@@ -19,7 +20,6 @@ let create = async(req, resp, next)=>{
         
         
     } catch (error) {
-        console.log(error)
         next(error)
     }
 }
