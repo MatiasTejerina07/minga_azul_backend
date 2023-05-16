@@ -2,7 +2,7 @@ import Chapter from '../../models/Chapter.js'
 
 let get_me = async (req,res,next) => {
     try {
-        let manga_id = req.params.manga_id
+        let manga_id = req.query.manga_id
         let chapter = await Chapter.find({manga_id}).select('title order pages manga_id -_id')
         if(chapter){
             return res.status(200).json({
