@@ -2,12 +2,16 @@ import Manga from "../../models/Manga.js";
 
 
 async function getMe(req, res, next){
+    let querys = {}
+    querys.author_id = req.body.author_id;
+    if(req.query.category_id){
+        querys.category_id = req.query.category_id
+    }
+    if(req.query.title){
+        querys.title = req.query.title
+    }
     try {
-        let mangas = await Manga.find({
-            author_id: req.body.author_id,
-            category_id: req.query.category_id,
-            title: req.query.title
-        });
+        let mangas = await Manga.find(querys).populate("category_id");
         if(mangas){
             return res.status(201).json({
                 success: true,
