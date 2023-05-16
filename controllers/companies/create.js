@@ -3,7 +3,7 @@ import User from '../../models/User.js';
 let create = async(req,res,next)=>{
     try {
         let object = req.body;
-        object.active = true;
+        object.active = false;
         object.user_id = req.user.id;
         
 

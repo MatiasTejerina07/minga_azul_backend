@@ -10,6 +10,7 @@ import accountHasBeenVerified from '../middlewares/isVerified.js';
 import passwordIsOk from '../middlewares/passIsOk.js';
 import passport from '../middlewares/passport.js';
 import signintoken from '../controllers/users/signInToken.js';
+import roleUpdate from '../controllers/users/roleUpdate.js';
 
 const router = express.Router()
 
@@ -25,5 +26,6 @@ router.post('/signup', validator(userSignUp), accountExistsSignUp, signUp);
 router.post('/signin', validator(userSignIn), accountExistsSignIn,accountHasBeenVerified, passwordIsOk, signin);
 router.post('/signout', passport.authenticate('jwt',{session: false}),signOut)
 router.post('/token', passport.authenticate('jwt',{session: false}), signintoken)
+router.put('/role/author/:id',passport.authenticate('jwt', {session:false}, roleUpdate))
 
 export default router
