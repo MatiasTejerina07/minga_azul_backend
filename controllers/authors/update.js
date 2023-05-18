@@ -1,8 +1,10 @@
 import Author from "../../models/Author.js";
+
 import User from "../../models/User.js"
 
 const update = async (req, res, next) => {
     let role = req.body.active ? 1 : 0
+
     try {
         let upd = await Author.findByIdAndUpdate(
             req.params.id
@@ -10,6 +12,7 @@ const update = async (req, res, next) => {
             { active: req.body.active },
         )
         if (upd) {
+
             let userUpdate = await User.findByIdAndUpdate(
                 upd.user_id, { role: role }
             )
@@ -31,6 +34,7 @@ const update = async (req, res, next) => {
                     message: "not found"
                 }]
             })
+
         }
     } catch (error) {
         next(error)
