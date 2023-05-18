@@ -8,7 +8,7 @@ async function getMe(req, res, next){
         querys.category_id = req.query.category_id
     }
     if(req.query.title){
-        querys.title = req.query.title
+        querys.title = new RegExp(req.query.title.trim(), 'i')
     }
     try {
         let mangas = await Manga.find(querys).populate("category_id");
