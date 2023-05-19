@@ -4,7 +4,7 @@ async function destroy(req, res, next){
     try {
         let manga = await Manga.findByIdAndDelete(req.params.id);
         let chapters = await Chapter.deleteMany({manga_id: req.params.id})
-        if(manga.deletedCount || chapters.deletedCount){
+        if(manga || chapters.deletedCount){
             return res.status(201).json({
                 success: true,
                 manga,
