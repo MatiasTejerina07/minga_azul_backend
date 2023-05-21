@@ -13,6 +13,7 @@ import mercadopago from 'mercadopago';
 import notFound from './middlewares/notFound.js';
 import errorHandler from './middlewares/errorHandler.js';
 
+
 //MERCADOPAGO
 
 mercadopago.configure({ access_token: process.env.ACCESS_TOKEN })
