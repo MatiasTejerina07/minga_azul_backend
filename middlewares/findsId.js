@@ -3,7 +3,6 @@ import Company from "../models/Company.js"
 import createHttpError from "http-errors";
 
 let find_id = async(req,res,next)=>{
-    
     let author = await Author.findOne({
         user_id: req.user.id
     })
@@ -11,7 +10,7 @@ let find_id = async(req,res,next)=>{
         user_id: req.user.id
     })
     if (author){
-        req.body.author_id = author._id
+        req.body.author_id = author._id.toString()
     }
     if(company){
         req.body.company_id = company._id
