@@ -6,7 +6,7 @@ async function getChapterComments(req, res, next) {
             chapter_id: req.params.chapter_id
         })
             .sort({ createdAt: -1 })
-            .populate("user_id", "photo role is_verified")
+            .populate("user_id", "photo role is_verified email")
         if (comments) {
             return res.status(200).json({
                 succes: true,

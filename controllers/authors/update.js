@@ -8,6 +8,7 @@ const update = async (req, res, next) => {
             req.params.id
             ,
             { active: req.body.active },
+            { new: true }
         )
         if (upd) {
             let userUpdate = await User.findByIdAndUpdate(
@@ -18,10 +19,7 @@ const update = async (req, res, next) => {
                     .status(200)
                     .json({
                         success: true,
-                        message: [{
-                            path: "AuthorUpdate",
-                            message: "Author update!"
-                        }]
+                        upd
                     })
             }
             return res.status(404).json({
