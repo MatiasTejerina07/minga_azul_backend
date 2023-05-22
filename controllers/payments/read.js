@@ -3,7 +3,7 @@ import mercadopago from "mercadopago"
 let read = (req, res, next) => {
     try {
         const prod = req.body
-
+        console.log(prod)
         let preference = {
             items: [{
                 id: 123,
