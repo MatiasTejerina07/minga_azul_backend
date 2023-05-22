@@ -91,7 +91,9 @@ let signUp = async (req, res, next) => {
 		<tr>
 			<td style="text-align: center;">
 				<a style="border:0; outline:0; text-decoration:none; padding: 10px; background-color: #4338CA; border-radius: 20px; color: #fff;"
-					target="_blank" href="http://www.tarjetacencosud.com.ar/">
+
+					target="_blank" href="http://localhost:5173/verify">
+
 					Verify Email
 				</a>
 			</td>
