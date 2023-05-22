@@ -7,16 +7,14 @@ const update = async (req, res, next) => {
             req.params.id
             ,
             { active: req.body.active },
+            { new: true }
         )
         if (upd) {
             return res
                 .status(200)
                 .json({
                     success: true,
-                    message: [{
-                        path: "CompanyUpdate",
-                        message: "Company update!"
-                    }]
+                    upd
                 })
         }
     } catch (error) {

@@ -12,6 +12,9 @@ import passport from '../middlewares/passport.js';
 import signintoken from '../controllers/users/signInToken.js';
 import roleUpdate from '../controllers/users/roleUpdate.js';
 
+import read from '../controllers/users/is_verified.js';
+import userIsVerified from '../controllers/users/is_verified.js';
+
 const router = express.Router()
 
 router.get('/', function (req, res, next) {
@@ -22,6 +25,7 @@ router.get('/', function (req, res, next) {
   succes: true,
   admins: []
 })) */
+router.put('/verify/:verify_code',userIsVerified)
 router.post('/signup', validator(userSignUp), accountExistsSignUp, signUp);
 router.post('/signin', validator(userSignIn), accountExistsSignIn,accountHasBeenVerified, passwordIsOk, signin);
 router.post('/signout', passport.authenticate('jwt',{session: false}),signOut)
