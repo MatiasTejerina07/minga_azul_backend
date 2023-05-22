@@ -1,8 +1,10 @@
 import Manga from "../models/Manga.js";
 
 async function isPropertyOf(req,res,next){
+    let mangaId = req.body.manga_id ? req.body.manga_id : req.params.id
+    console.log(mangaId)
     let manga= await Manga.findOne({
-        _id: req.body.manga_id,
+        _id: mangaId,
         author_id: req.body.author_id,
     })
     if(manga){
