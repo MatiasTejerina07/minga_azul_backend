@@ -4,7 +4,6 @@ let userIsVerified = async (req, res, next) => {
         let userVerified = await User.findOneAndUpdate(
 
             { verify_code: req.params.verify_code },
-
             { is_verified: true },
             { new: true }
         )

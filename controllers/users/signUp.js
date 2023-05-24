@@ -5,25 +5,25 @@ import User from '../../models/User.js';
 
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASS,
-    }
+	service: 'gmail',
+	auth: {
+		user: process.env.EMAIL,
+		pass: process.env.EMAIL_PASS,
+	}
 })
 let signUp = async (req, res, next) => {
-    req.body.is_online = false;
-    req.body.role = 0;
-    req.body.is_verified = false;
-    req.body.verify_code = crypto.randomBytes(10).toString('hex');
-    req.body.password = bcryptjs.hashSync(req.body.password, 10);
-    try {
-        await User.create(req.body);
-        const mailOptions = {
-            from: 'minga46blueteam@gmail.com',
-            to: req.body.email,
-            subject: 'Hello, I am glad you have chosen this community, are you ready to be part of MINGA?',
-            html: `
+	req.body.is_online = false;
+	req.body.role = 0;
+	req.body.is_verified = false;
+	req.body.verify_code = crypto.randomBytes(10).toString('hex');
+	req.body.password = bcryptjs.hashSync(req.body.password, 10);
+	try {
+		await User.create(req.body);
+		const mailOptions = {
+			from: 'minga46blueteam@gmail.com',
+			to: req.body.email,
+			subject: 'Hello, I am glad you have chosen this community, are you ready to be part of MINGA?',
+			html: `
             <html>
 <head>
 	<title></title>
@@ -37,7 +37,6 @@ let signUp = async (req, res, next) => {
 	<table width="600" border="0" cellpadding="0" cellspacing="0" align="center"
 		style="font-family: 'Roboto', sans-serif;">
 		<!-- header -->
-
 		<tr>
 			<td style="text-align: center;">
 				<figure style="padding: 20px; border-bottom: 1px solid #4338CA;">
@@ -107,21 +106,21 @@ let signUp = async (req, res, next) => {
 
 </html>
             `
-        }
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error)
-            } else {
-                console.log("send email:", info.response)
-            }
-        })
-        return res.status(201).json({
-            success: true,
-            message: "The user was created"
-        })
-    } catch (error) {
-        console.log(error);
-    }
+		}
+		transporter.sendMail(mailOptions, function (error, info) {
+			if (error) {
+				console.log(error)
+			} else {
+				console.log("send email:", info.response)
+			}
+		})
+		return res.status(201).json({
+			success: true,
+			message: "The user was created"
+		})
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export default signUp;
