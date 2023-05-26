@@ -13,7 +13,7 @@ async function accountExistsSignUp(req, res, next){
             ]
         });
     }
-    return next();
+    next();
 }
 
 export default accountExistsSignUp;

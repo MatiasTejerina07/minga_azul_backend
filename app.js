@@ -9,6 +9,7 @@ import indexRouter from './routes/index.js';
 import { __dirname } from './utils.js';
 const app = express();
 import cors from 'cors'
+import mercadopago from 'mercadopago';
 import notFound from './middlewares/notFound.js';
 import errorHandler from './middlewares/errorHandler.js';
 import mercadopago from 'mercadopago';
@@ -17,10 +18,15 @@ import mercadopago from 'mercadopago';
 //setup meli
 mercadopago.configure({ access_token: process.env.ACCESS_TOKEN })
 
+
+//MERCADOPAGO
+
+mercadopago.configure({ access_token: process.env.ACCESS_TOKEN })
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
   console.log("Petición solicitada!!")
   next()
 })
