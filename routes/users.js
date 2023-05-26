@@ -16,11 +16,13 @@ import userIsVerified from '../controllers/users/is_verified.js';
 import userGoogle from '../controllers/users/user_Google.js';
 import decodeToken from '../middlewares/decodeGoogleToken.js';
 
+
 const router = express.Router()
 
 router.get('/', function (req, res, next) {
   res.send("respond with a resource");
 })
+
 router.post('/verify/resendcode', reSend)
 router.put('/verify/:verify_code', userIsVerified)
 router.post('/signup', validator(userSignUp), accountExistsSignUp, signUp);

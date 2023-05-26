@@ -1,6 +1,7 @@
 import User from '../../models/User.js';
 import jwt from 'jsonwebtoken';
 
+
 let signin = async (req, res, next) => {
     try {
         let user = await User.findOneAndUpdate(

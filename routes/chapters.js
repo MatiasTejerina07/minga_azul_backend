@@ -22,10 +22,10 @@ import update from '../controllers/chapters/update.js';
 
 let router = Router();
 
-router.get('/', getChapters);
+
+router.get("/", passport.authenticate("jwt", {session: false}), getPages, getChapters);
 router.get('/me',passport.authenticate("jwt", {session: false}), find_id, get_me)
 router.get('/:id',get_one)
-router.get('/pages/:id', getPages)
 router.post('/', validator(createChapterSchema),passport.authenticate("jwt", {session: false}),mangaExists, find_id ,isPropertyOf, chapterExists,addCoverPhoto ,nextOrder ,existOrder,  create)
 router.put('/:id',validator(updateChapterSchema),passport.authenticate('jwt',{session:false}),find_id, isactive, isPropertyOf, update)
 router.delete('/:id',passport.authenticate('jwt',{session:false}), find_id, isactive, isPropertyOf , destroy)

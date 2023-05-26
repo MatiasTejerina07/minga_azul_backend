@@ -8,6 +8,7 @@ import companiesRouter from './companies.js'
 import commentsRouter from './comments.js'
 import paymentsRouter from './payments.js'
 import reactionsRouter from './reactions.js'
+
 const router = express.Router();
 
 /* GET home page. */
@@ -27,5 +28,6 @@ router.use('/companies', companiesRouter)
 router.use('/comments', commentsRouter)
 router.use('/payments', paymentsRouter)
 router.use('/reactions', reactionsRouter)
+
 
 export default router;
