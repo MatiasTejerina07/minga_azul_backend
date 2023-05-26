@@ -12,9 +12,10 @@ import update from "../controllers/mangas/update.js";
 import is_active from "../middlewares/isactive.js"
 import is_property_of from "../middlewares/isPropertyOf.js"
 import destroy from "../controllers/mangas/destroy.js"
+import getPages from "../controllers/mangas/get_pages.js";
 let router = Router()
 
-router.get('/', get_mangas)
+router.get('/', passport.authenticate("jwt", {session: false}),getPages, get_mangas)
 router.get('/me', passport.authenticate('jwt', {session: false}),find_id, get_me)
 router.get('/:id', get_one)
 router.put('/:id',validator(mangasUpdate), passport.authenticate('jwt', {session: false}), find_id, is_active, is_property_of,  update)

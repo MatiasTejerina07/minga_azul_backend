@@ -11,6 +11,11 @@ const app = express();
 import cors from 'cors'
 import notFound from './middlewares/notFound.js';
 import errorHandler from './middlewares/errorHandler.js';
+import mercadopago from 'mercadopago';
+
+
+//setup meli
+mercadopago.configure({ access_token: process.env.ACCESS_TOKEN })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -18,19 +18,10 @@ async function getChapters(req, res, next) {
     try {
         let chapters = await Chapter.find({ manga_id: req.query.manga_id }, 'title order cover_photo pages', { skip: skip, limit: limit })?.sort({ order: order })
         let newChapters = []
-        for(let chapter of chapters){
-            let newChapter = {
-                _id: chapter._id,
-                title: chapter.title,
-                cover_photo: chapter.cover_photo,
-                order: chapter.order,
-                pages: chapter.pages.length
-            }
-            newChapters.push(newChapter)
-        }
         return res.status(201).json({
             success: true,
-            chapters: newChapters
+            chapters: chapters,
+            pages: req.body.pages
         })
     } catch (error) {
         res.status(500).json({
