@@ -6,6 +6,7 @@ export let mangas_v1 = [
         category_id: 'shonen',
         author_id: 'alejandro',
         company_id: 'Peace',
+        reaction: [],
         chapters: [
             {
                 title: 'Welcome - part 1',
@@ -59,6 +60,7 @@ export let mangas_v1 = [
         description: '100 years ago Titans appeared on earth. Soon the civilization was at the point of collapse because of these, the humans then built three giant walls to defend themselves. With the walls they were at peace but, after 100 years, the giants broke down the walls.',
         category_id: 'shonen',
         author_id: 'lucas',
+        reaction: [],
         chapters: [
             {
                 title: 'Titans attack',
@@ -105,6 +107,7 @@ export let mangas_v1 = [
         category_id: 'shonen',
         author_id: 'lucas',
         company_id: 'Peace',
+        reaction: [],
         chapters: [
             {
                 title: 'Grace Field Home',
@@ -154,6 +157,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'shonen',
         author_id: 'eric',
+        reaction: [],
         chapters: [
             {
                 title: 'Death & Strawberry',
@@ -203,6 +207,7 @@ export let mangas_v1 = [
         description: 'This story revolves around a curse that affects class 3-3 of Yomiyama High School. It all begins when the protagonist, Kōichi Sakakibara, moves to this school and meets Mei Misaki, a girl who is ignored by her classmates due to a supposed curse that weighs on her. As Kōichi becomes more involved in the mystery surrounding class 3-3, he discovers that a student in the class died 26 years ago, and that every year someone in that class mysteriously dies since then. Kōichi and Mei try to uncover the truth behind the curse and end the wave of death while fighting the danger that lurks around them.',
         category_id: 'seinen',
         author_id: 'eric',
+        reaction: [],
         chapters: [
             {
                 title: 'I',
@@ -252,6 +257,7 @@ export let mangas_v1 = [
         description: 'This is a sci-fi action story that follows a group of people who have been brought back to life by a mysterious sphere called Gantz and forced to participate in dangerous missions against strange and dangerous creatures. It all starts when the protagonist, Kei Kurono, is killed in an accident and is revived by Gantz along with other people who have recently died. As they fight to survive and complete Gantz´s missions, Kei and his companions discover that there is much more at stake than just their own lives.',
         category_id: 'seinen',
         author_id: 'lucas',
+        reaction: [],
         chapters: [
             {
                 title: 'I',
@@ -301,6 +307,7 @@ export let mangas_v1 = [
         description: 'This story follows the life of Onodera Punpun, a high school boy who struggles with emotional issues and family problems as he tries to grow up and find his place in the world. Punpun is not your typical elementary school student. Despite the fact that he feels the same impulses as his peers, he begins to discover girls and sex, the family situation is not the most stable and he must face it as best he can... and in principle, that is visualizing himself as an amorphous bird in a strange environment.',
         category_id: 'seinen',
         author_id: 'lucas',
+        reaction: [],
         chapters: [
             {
                 title: '1',
@@ -351,6 +358,7 @@ export let mangas_v1 = [
         category_id: 'comic',
         author_id: 'eric',
         company_id: 'Peace',
+        reaction: [],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -380,6 +388,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'comic',
         author_id: 'eric',
+        reaction: [],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -429,6 +438,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'comic',
         author_id: 'alejandro',
+        reaction: [],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -474,6 +484,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'comic',
         author_id: 'alejandro',
+        reaction: [],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -507,6 +518,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'comic',
         author_id: 'eric',
+        reaction: [],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -536,6 +548,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'shonen',
         author_id: 'lucas',
+        reaction: [],
         chapters: [
             {
                 title: 'Red',
@@ -601,6 +614,7 @@ export let mangas_v1 = [
         description: 'edit later',
         category_id: 'shojo',
         author_id: 'lucas',
+        reaction: [],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -659,6 +673,7 @@ export let mangas_v1 = [
         category_id: 'shojo',
         author_id: 'eric',
         company_id: 'Peace',
+        reaction: [],
         chapters: [
             {
                 title: '001',

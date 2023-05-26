@@ -1,30 +1,23 @@
-import jwt from "jsonwebtoken"
+import bcryptjs from 'bcryptjs'
 import User from "../../models/User.js"
 
-let userGoogle = async (req, res, next) => {
-    const token = req.body.credential
-    const token2 = jwt.decode(token)
-    const { email, email_verified, name, picture, given_name, jti } = token2
+let createUserGoogle = async (req, res, next) => {
+
     let user = {
-        name: name,
-        last_name: given_name,
-        email: email,
-        photo: picture,
-        is_verified: email_verified,
-        password: jti,
+        name: req.body.name,
+        email: req.body.email,
+        photo: req.body.picture,
+        is_verified: req.body.email_verified,
+        password: bcryptjs.hashSync(req.body.sub, 10),
         is_online: true,
         role: 0,
-        verify_code: jti
-
+        verify_code: req.body.jti
     }
     try {
         await User.create(user)
-        return res.status(201).json({
-            success: true,
-            message: "The user was created"
-        })
+        next()
     } catch (error) {
         next(error);
     }
 }
-export default userGoogle
+export default createUserGoogle
