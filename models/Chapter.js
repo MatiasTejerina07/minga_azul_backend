@@ -10,11 +10,6 @@ let schema = new Schema({
     cover_photo: { type: String, required: true },
     pages: [{ type: String, required: true }],
     order: { type: Number, required: true },
-    reactions: {
-        likes: { type: Number, default: 0 },
-        dislikes: { type: Number, default: 0 },
-        hearts: { type: Number, default: 0 },
-    },
 }, {
     timestamps: true,
 })
