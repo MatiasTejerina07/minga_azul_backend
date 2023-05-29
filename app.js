@@ -12,11 +12,6 @@ import cors from 'cors'
 import mercadopago from 'mercadopago';
 import notFound from './middlewares/notFound.js';
 import errorHandler from './middlewares/errorHandler.js';
-import mercadopago from 'mercadopago';
-
-
-//setup meli
-mercadopago.configure({ access_token: process.env.ACCESS_TOKEN })
 
 
 //MERCADOPAGO
